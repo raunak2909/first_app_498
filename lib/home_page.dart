@@ -1,43 +1,46 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class HomePage extends StatelessWidget{
+class HomePage extends StatelessWidget {
+
+  TextEditingController nameController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Align(
-        alignment: Alignment.center,
-        child: Container(
-          width: 200,
-          height: 200,
-          decoration: BoxDecoration(
-              color: Color(0xff0000ff),
-              borderRadius: BorderRadius.circular(21),
-              /*border: Border.all(
-                width: 21,
-                color: Colors.black.withAlpha(100),
-                strokeAlign: BorderSide.strokeAlignInside
-              ),*/
-              //shape: BoxShape.circle,
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey,
-                  blurRadius: 11,
-                  spreadRadius: 1,
-                  offset: Offset(-11, 11)
-                )
-              ]
-          ),
-          child: Align(
-            alignment: Alignment.center,
-              child: Text("Hello World!!", style: TextStyle(
-                fontSize: 25
-              ),)
-          ),
-        ),
+        alignment: Alignment.topLeft,
+        child: Padding(
+          padding: EdgeInsets.all(11),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextField(
+              controller: nameController,
+              onChanged: (value){
+                print(value);
+              },
+              obscureText: true,
+              //enabled: false,
+              obscuringCharacter: '*',
+              ///*, #, +
+              keyboardType: TextInputType.phone,
+              /// ., - ,
+              decoration: InputDecoration(
+                hintText: "Enter your name here..",
+                labelText: "Name",
+                /*prefixIcon: Icon(Icons.account_circle_outlined),
+                prefixText: "Mr./Miss   ",*/
+                suffixIcon: Icon(Icons.visibility_outlined),
+                suffixText: "@gmail.com",
+                border: OutlineInputBorder(),
+                enabledBorder: OutlineInputBorder(),
+                focusedBorder:  OutlineInputBorder(),
+                errorBorder:  OutlineInputBorder(),
+                focusedErrorBorder: OutlineInputBorder(),
+            ),
+                    ),
+          )
+      ),
       ),
       appBar: AppBar(
         backgroundColor: Colors.blue,
@@ -46,8 +49,173 @@ class HomePage extends StatelessWidget{
       ),
     );
   }
-
 }
+
+
+// TextField(
+//                   enabled: false,
+//                   controller: nameController,
+//                   onChanged: (value){
+//                     print(value);
+//                   },
+//                   obscureText: true,
+//                   //enabled: false,
+//                   obscuringCharacter: '*',
+//                   ///*, #, +
+//                   keyboardType: TextInputType.phone,
+//                   /// ., - ,
+//                   decoration: InputDecoration(
+//                     border: UnderlineInputBorder(),
+//                     enabledBorder: OutlineInputBorder(
+//                       borderRadius: BorderRadius.circular(11),
+//                       borderSide: BorderSide(
+//                         color: Colors.orange,
+//                         width: 2
+//                       )
+//                     ),
+//                     focusedBorder:  UnderlineInputBorder(
+//                         borderRadius: BorderRadius.circular(21),
+//                         borderSide: BorderSide(
+//                             color: Colors.blue,
+//                             width: 4
+//                         )
+//                     ),
+//                     errorBorder:  UnderlineInputBorder(),
+//                     focusedErrorBorder: UnderlineInputBorder(),
+//                     disabledBorder: UnderlineInputBorder()
+//                 ),
+//                         ),
+
+/*
+* Container(
+          margin: EdgeInsets.only(top: 11, left: 11),
+          padding: EdgeInsets.symmetric(vertical: 11,horizontal: 21),
+            decoration: BoxDecoration(
+              color: Colors.amber
+            ),
+            child: Text('Hello World!!'))*/
+
+/*
+* ClipOval(
+          child: Image.network("https://m.media-amazon.com/images/M/MV5BMmU1YWU1NmMtMjAyMi00MjFiLWFmZmUtOTc1ZjI5ODkxYmQyXkEyXkFqcGc@._V1_.jpg",
+            width: 200,
+            height: 200,
+            fit: BoxFit.cover,),
+        )*/
+
+/*
+* ClipRRect(
+          borderRadius: BorderRadius.circular(100),
+          child: Image.network("https://m.media-amazon.com/images/M/MV5BMmU1YWU1NmMtMjAyMi00MjFiLWFmZmUtOTc1ZjI5ODkxYmQyXkEyXkFqcGc@._V1_.jpg",
+            width: 200,
+            height: 200,
+            fit: BoxFit.cover,),
+        )*/
+
+
+/*
+* Container(
+          width: 200,
+          height: 200,
+          decoration: BoxDecoration(
+            color: Colors.amber,
+            borderRadius: BorderRadius.circular(100),
+            ///shape: BoxShape.circle,
+            image: DecorationImage(
+              image: NetworkImage(
+                "https://m.media-amazon.com/images/M/MV5BMmU1YWU1NmMtMjAyMi00MjFiLWFmZmUtOTc1ZjI5ODkxYmQyXkEyXkFqcGc@._V1_.jpg",
+              ),
+              fit: BoxFit.cover
+            ),
+          ),
+        ),*/
+
+/*
+* Image.network(
+            "https://m.media-amazon.com/images/M/MV5BMmU1YWU1NmMtMjAyMi00MjFiLWFmZmUtOTc1ZjI5ODkxYmQyXkEyXkFqcGc@._V1_.jpg",
+            width: 200,
+            height: 200,
+            fit: BoxFit.cover,
+          ),*/
+
+/*Image.asset("assets/images/bg_batman.jpeg")*/
+
+/*
+* Container(
+          padding: EdgeInsets.all(7),
+            width: 70,
+            height: 70,
+            decoration: BoxDecoration(
+              color: Color(0xffD1BEFD),
+              borderRadius: BorderRadius.circular(21),
+              gradient: LinearGradient(
+                begin: Alignment.bottomLeft,
+                end: Alignment.topRight,
+                stops: [0, 0.1, 0.5, 1,],
+                colors: [
+                  Color(0xffFFDD55),
+                  Color(0xffFFDD55),
+                  Color(0xffFF543E),
+                  Color(0xffC837AB),
+                ],
+              ),
+              /*border: Border.all(
+                width: 21,
+                color: Colors.black.withAlpha(100),
+                strokeAlign: BorderSide.strokeAlignInside
+              ),*/
+              //shape: BoxShape.circle,
+              /*boxShadow: [
+                BoxShadow(
+                  color: Colors.grey,
+                  blurRadius: 11,
+                  spreadRadius: 1,
+                  offset: Offset(-11, 11)
+                )
+              ]*/
+            ),
+            child: Image.asset('assets/icons/ic_insta.png', width: 50, height: 50,)
+        ),*/
+
+///Container(
+//           width: 70,
+//           height: 70,
+//           decoration: BoxDecoration(
+//             color: Color(0xffD1BEFD),
+//             borderRadius: BorderRadius.circular(21),
+//             gradient: LinearGradient(
+//               begin: Alignment.bottomLeft,
+//               end: Alignment.topRight,
+//               stops: [0, 0.1, 0.5, 1,],
+//               colors: [
+//                 Color(0xffFFDD55),
+//                 Color(0xffFFDD55),
+//                 Color(0xffFF543E),
+//                 Color(0xffC837AB),
+//               ],
+//             ),
+//             /*border: Border.all(
+//                 width: 21,
+//                 color: Colors.black.withAlpha(100),
+//                 strokeAlign: BorderSide.strokeAlignInside
+//               ),*/
+//             //shape: BoxShape.circle,
+//             /*boxShadow: [
+//                 BoxShadow(
+//                   color: Colors.grey,
+//                   blurRadius: 11,
+//                   spreadRadius: 1,
+//                   offset: Offset(-11, 11)
+//                 )
+//               ]*/
+//           ),
+//           child: Icon(Icons.account_circle_outlined, color: Colors.white, size: 40,)
+//         )
+
+///Align(
+//             alignment: Alignment.center,
+//             child: Text("Hello World!!", style: TextStyle(fontSize: 25)),
+//           ),
 
 ///Align(
 //         alignment: Alignment(0, 0),

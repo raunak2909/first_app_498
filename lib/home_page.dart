@@ -2,45 +2,84 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatelessWidget {
-
   TextEditingController nameController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Align(
-        alignment: Alignment.topLeft,
-        child: Padding(
-          padding: EdgeInsets.all(11),
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextField(
-              controller: nameController,
-              onChanged: (value){
-                print(value);
-              },
-              obscureText: true,
-              //enabled: false,
-              obscuringCharacter: '*',
-              ///*, #, +
-              keyboardType: TextInputType.phone,
-              /// ., - ,
-              decoration: InputDecoration(
-                hintText: "Enter your name here..",
-                labelText: "Name",
-                /*prefixIcon: Icon(Icons.account_circle_outlined),
-                prefixText: "Mr./Miss   ",*/
-                suffixIcon: Icon(Icons.visibility_outlined),
-                suffixText: "@gmail.com",
-                border: OutlineInputBorder(),
-                enabledBorder: OutlineInputBorder(),
-                focusedBorder:  OutlineInputBorder(),
-                errorBorder:  OutlineInputBorder(),
-                focusedErrorBorder: OutlineInputBorder(),
-            ),
+      body: Padding(
+        padding: const EdgeInsets.all(11.0),
+        child: Column(
+          children: [
+            Row(
+              children: [
+                /*ClipOval(
+                  child: Image.network(
+                    "https://m.media-amazon.com/images/M/MV5BMmU1YWU1NmMtMjAyMi00MjFiLWFmZmUtOTc1ZjI5ODkxYmQyXkEyXkFqcGc@._V1_.jpg",
+                    width: 60,
+                    height: 60,
+                    fit: BoxFit.cover,
+                  ),
+                )*/
+                Container(
+                  width: 60,
+                  height: 60,
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        offset: Offset(4, 4),
+                        color: Colors.grey,
+                        spreadRadius: 1,
+                        blurRadius: 7
+                      )
+                    ],
+                    border: Border.all(
+                      color: Colors.white
                     ),
-          )
-      ),
+                    shape: BoxShape.circle,
+                    image: DecorationImage(
+                      image: NetworkImage(
+                        "https://m.media-amazon.com/images/M/MV5BMmU1YWU1NmMtMjAyMi00MjFiLWFmZmUtOTc1ZjI5ODkxYmQyXkEyXkFqcGc@._V1_.jpg",
+                      ),
+                      fit: BoxFit.cover
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: 11,
+                ),
+                Text("Hi, Tom!", style: TextStyle(
+                  fontSize: 19,
+                  fontWeight: FontWeight.bold
+                ),),
+                Spacer(),
+                Icon(Icons.notifications_outlined, size: 28,),
+                SizedBox(
+                  width: 11,
+                ),
+                Icon(Icons.search, size: 28,)
+              ],
+            ),
+            SizedBox(
+              height: 11,
+            ),
+            Row(
+              children: [
+                Icon(Icons.location_on_rounded, color: Colors.amber, size: 28,),
+                SizedBox(
+                  width: 8,
+                ),
+                Text("Jakarta, ", style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold
+                ),),
+                Text("Indonesia", style: TextStyle(
+                    fontSize: 16,
+                ),)
+              ],
+            )
+          ],
+        ),
       ),
       appBar: AppBar(
         backgroundColor: Colors.blue,
@@ -51,6 +90,112 @@ class HomePage extends StatelessWidget {
   }
 }
 
+/*
+* Container(
+        width: 300,
+        color: Colors.grey,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Container(
+              width: 100,
+              height: 100,
+              color: Colors.orange,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    width: 50,
+                    height: 50,
+                    color: Colors.red,
+                  ),
+                  Container(
+                    width: 50,
+                    height: 50,
+                    color: Colors.green,
+                  ),
+                  Container(
+                    width: 50,
+                    height: 50,
+                    color: Colors.yellow,
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              width: 200,
+              height: 100,
+              color: Colors.amber,
+            ),
+            Container(
+              width: 100,
+              height: 100,
+              color: Colors.brown,
+            ),
+          ],
+        ),
+      ),*/
+
+///InkWell(
+//           onTap: (){
+//             print("Profile pic tapped!!");
+//           },
+//           child: ClipOval(
+//             child: Image.network(
+//               "https://m.media-amazon.com/images/M/MV5BMmU1YWU1NmMtMjAyMi00MjFiLWFmZmUtOTc1ZjI5ODkxYmQyXkEyXkFqcGc@._V1_.jpg",
+//               fit: BoxFit.cover,
+//               width: 100,
+//               height: 100,
+//             )
+//           ),
+//         )
+
+///IconButton(onPressed: (){
+//
+//           }, icon: Icon(Icons.ac_unit_outlined))
+
+///ElevatedButton(
+//             style: ElevatedButton.styleFrom(
+//               //fixedSize: Size(MediaQuery.of(context).size.width, 50),
+//               backgroundColor: Colors.orange,
+//               foregroundColor: Colors.white,
+//               shape: RoundedRectangleBorder(
+//                 borderRadius: BorderRadius.circular(20)
+//               )
+//             ),
+//               onPressed: (){
+//                 print('Tapped!!');
+//               },
+//               child: Text('Tap')),
+
+///Padding(
+//           padding: const EdgeInsets.all(8.0),
+//           child: TextField(
+//             controller: nameController,
+//             onChanged: (value){
+//               print(value);
+//             },
+//             obscureText: true,
+//             //enabled: false,
+//             obscuringCharacter: '*',
+//             ///*, #, +
+//             keyboardType: TextInputType.phone,
+//             /// ., - ,
+//             decoration: InputDecoration(
+//               hintText: "Enter your name here..",
+//               labelText: "Name",
+//               prefixIcon: Icon(Icons.account_circle_outlined),
+//               prefixText: "Mr./Miss   ",
+//               suffixIcon: Icon(Icons.visibility_outlined),
+//               suffixText: "@gmail.com",
+//               border: OutlineInputBorder(),
+//               enabledBorder: OutlineInputBorder(),
+//               focusedBorder:  OutlineInputBorder(),
+//               errorBorder:  OutlineInputBorder(),
+//               focusedErrorBorder: OutlineInputBorder(),
+//           ),
+//                   ),
+//         ),
 
 // TextField(
 //                   enabled: false,
@@ -111,7 +256,6 @@ class HomePage extends StatelessWidget {
             height: 200,
             fit: BoxFit.cover,),
         )*/
-
 
 /*
 * Container(
